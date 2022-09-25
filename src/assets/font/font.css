@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "navigator";
+    src: url("SourceHanSerifCN-Regular.otf");
+}
+@font-face {
+    font-family: "blogMain";
+    src: url("mysx.ttf");
+}
+@font-face {
+    font-family: "pictureAnnotation"
+    ;
+    src: url("HCSZT-Regular.ttf");
+}
+@font-face {
+    font-family: "message";
+    src: url("cefb.ttf");
+}
