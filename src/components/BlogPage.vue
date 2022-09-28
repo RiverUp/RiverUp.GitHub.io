@@ -74,15 +74,16 @@ export default {
   background-size: 100% 100%;
   position: absolute;
   opacity: 0.45;
-  width: 100%;
+  width: 80%;
   height: 100%;
+  overflow: hidden;
 }
 .el-header {
   text-align: center;
 }
 .el-menu {
   background-color: rgba(255, 255, 255, 0);
-  padding-left: 15%;
+  padding-left: 10%;
 }
 .el-menu-item {
   font-size: 18px;
