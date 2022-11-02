@@ -50,4 +50,7 @@ export default {
 .identity {
   margin-top: 20%;
 }
+p {
+  font-size: 13px;
+}
 </style>
