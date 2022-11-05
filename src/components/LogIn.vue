@@ -51,6 +51,6 @@ export default {
   margin-top: 20%;
 }
 p {
-  font-size: 13px;
+  font-size: 16px;
 }
 </style>

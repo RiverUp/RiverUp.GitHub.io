@@ -1,9 +1,7 @@
 <template>
   <el-container class="navigation">
     <el-aside>
-      <el-avatar
-        src="https://github.com/RiverUp/RiverUp.GitHub.io/blob/main/src/assets/avatar.JPG"
-      />
+      <el-avatar :src="imgUrl" />
       <div class="catalog"></div>
     </el-aside>
     <el-container class="blog">
@@ -14,15 +12,24 @@
             mode="horizontal"
             @select="RouteToSortedBlog"
             text-color="black"
+            active-text-color="purple"
           >
-            <el-menu-item index="1">庸碌</el-menu-item>
-            <el-menu-item index="2">badmin</el-menu-item>
-            <el-menu-item index="3">瘦金</el-menu-item>
-            <el-menu-item index="4">绮丽</el-menu-item>
-            <el-menu-item index="5">喏</el-menu-item>
-            <el-menu-item index="6">留言</el-menu-item>
-            <el-menu-item index="7">关于我</el-menu-item>
+            <el-sub-menu index="1">
+              <template #title><div class="sub-title">碎念</div></template>
+              <el-menu-item index="1-1">庸碌</el-menu-item>
+              <el-menu-item index="1-2">badmin</el-menu-item>
+              <el-menu-item index="1-3">瘦金</el-menu-item>
+              <el-menu-item index="1-4">绮丽</el-menu-item>
+              <el-menu-item index="1-5">喏</el-menu-item>
+            </el-sub-menu>
+            <el-menu-item index="2">留言</el-menu-item>
+            <el-menu-item index="3">关于我</el-menu-item>
           </el-menu>
+          <div class="icons">
+            <el-icon><EditPen /></el-icon>
+            <el-icon><Message /></el-icon>
+            <el-icon><House /></el-icon>
+          </div>
         </div>
       </el-header>
       <el-main>
@@ -34,13 +41,21 @@
   </el-container>
 </template>
 <script>
+import { Message, EditPen, House } from "@element-plus/icons-vue";
+
 export default {
   name: "BlogPage",
+  components: {
+    Message,
+    EditPen,
+    House,
+  },
   data() {
     return {
       titles: [],
       currentTitle: "",
       comments: [],
+      imgUrl: "../assets/image/avatar.JPG",
     };
   },
   methods: {
@@ -70,8 +85,8 @@ export default {
   color: black;
 }
 .blogMain {
-  background-image: url("@/assets/image/backgroundimage.gif");
-  background-size: 100% 100%;
+  background-image: url("@/assets/image/backgroundimage1.gif");
+  background-size: 50% 100%;
   position: absolute;
   opacity: 0.45;
   width: 80%;
@@ -80,12 +95,21 @@ export default {
 }
 .el-header {
   text-align: center;
+  font-family: "navigator";
 }
 .el-menu {
   background-color: rgba(255, 255, 255, 0);
-  padding-left: 10%;
+  padding-left: 20%;
 }
-.el-menu-item {
+.sub-title {
+  font-size: 18px;
+}
+/* .el-sub-menu {
+  font-size: 25px;
+  font-family: "navigator";
+}*/
+.el-menu-item,
+.el-sub-menu {
   font-size: 18px;
   font-family: "navigator";
 }
@@ -97,5 +121,14 @@ export default {
   margin-top: 0%;
   font-size: 28px;
   font-weight: bold;
+}
+.icons {
+  position: fixed;
+  z-index: 2;
+  left: 85%;
+  top: 2%;
+}
+.el-icon {
+  padding: 10px;
 }
 </style>

@@ -25,7 +25,12 @@ const routes = [
   {
     path: "/login/:identity",
     name: "concreteLogin",
-    component: () => import("../views/ConcreteLoginView"),
+    component: () => import("../views/ConcreteLoginView.vue"),
+  },
+  {
+    path: "/signup/:identity",
+    name: "concreteSignup",
+    component: () => import("../views/ConcreteSignup.vue"),
   },
 ];
 
