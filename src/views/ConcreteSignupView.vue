@@ -22,9 +22,11 @@
   </div>
 </template>
 <script>
+import { ElMessage } from "element-plus";
+
 import SpecialBtn from "@/components/SpecialBtn.vue";
 
-import signUp from "../api/signUp";
+import { signUp } from "../api/signUp";
 
 export default {
   name: "ConcreteSignupView",
@@ -40,12 +42,26 @@ export default {
   },
   methods: {
     signUp: function () {
+      if (
+        this.guestName === "" ||
+        this.passwords === "" ||
+        this.phoneNum === ""
+      ) {
+        ElMessage.error(
+          "None of username, password and telephone number can be null"
+        );
+        return;
+      }
       signUp(
         this.guestName,
         this.passwords,
         this.$route.params.identity,
         this.phoneNum
       );
+      ElMessage({
+        message: "审核通过后会向您留下的手机号码发送短信通知，请近期留意",
+        type: "success",
+      });
     },
   },
 };
@@ -54,8 +70,8 @@ export default {
 @import url("@/assets/css/input.css");
 @import url("@/assets/css/loginBg.css");
 .signup {
-  margin-top: 3%;
-  margin-left: 32%;
+  margin-top: 15%;
+  margin-left: 40%;
   display: flex;
   text-align: center;
   justify-content: center;

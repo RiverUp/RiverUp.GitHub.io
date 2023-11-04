@@ -47,10 +47,25 @@ export default {
 <style scoped>
 @import url("@/assets/css/loginMenu.css");
 @import url("@/assets/css/loginBg.css");
+* {
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+  position: relative;
+  display: inline-block;
+  width: 9vw;
+  height: 9vw;
+  margin: 1rem;
+  opacity: 75%;
+}
 .identity {
   margin-top: 20%;
 }
 p {
-  font-size: 16px;
+  font-size: 1.5em;
 }
 </style>

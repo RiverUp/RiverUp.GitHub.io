@@ -4,7 +4,6 @@
 <style>
 html,
 body {
-  height: 100%;
   font-size: 24px;
   margin: 0%;
 }

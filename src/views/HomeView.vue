@@ -1,5 +1,6 @@
 <template>
   <BlogPage />
+  <body></body>
 </template>
 
 <script>

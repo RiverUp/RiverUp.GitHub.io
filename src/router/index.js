@@ -30,7 +30,7 @@ const routes = [
   {
     path: "/signup/:identity",
     name: "concreteSignup",
-    component: () => import("../views/ConcreteSignup.vue"),
+    component: () => import("../views/ConcreteSignupView.vue"),
   },
 ];
 

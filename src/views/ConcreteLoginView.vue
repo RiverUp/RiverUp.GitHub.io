@@ -19,7 +19,7 @@
         </form>
       </div>
       <div class="choices">
-        <special-btn class="login" content="login" @click="logIn" />
+        <special-btn class="login" content="login" @click="login" />
         <div class="space"></div>
         <special-btn class="sign up" content="sign up" @click="signUp" />
       </div>
@@ -27,12 +27,14 @@
   </div>
 </template>
 <script>
-import store from "@/store";
+// import store from "@/store";
 import router from "@/router";
+
+import { ElMessage } from "element-plus";
 
 import SpecialBtn from "@/components/SpecialBtn.vue";
 
-import logIn from "../api/logIn";
+// import { logIn } from "../api/logIn.js";
 
 export default {
   name: "ConcreteLoginView",
@@ -46,15 +48,19 @@ export default {
     };
   },
   methods: {
-    logIn: function () {
-      var identity = this.$route.params.identity;
-      logIn(this.guestName, this.passwords, identity).then((res) => {
-        if (res.status === 200) {
-          const token = res.data.token;
-          localStorage.setItem("token", token);
-          store.commit("setToken", token);
-        }
-      });
+    login: function () {
+      if (this.guestName === "" || this.passwords === "") {
+        ElMessage.error("Neither username nor password can be null");
+        return;
+      }
+      // var identity = this.$route.params.identity;
+      // logIn(this.guestName, this.passwords, identity).then((res) => {
+      //   if (res.status === 200) {
+      //     const token = res.data.token;
+      //     localStorage.setItem("token", token);
+      //     store.commit("setToken", token);
+      //   }
+      // });
       router.push({ name: "home" });
     },
     signUp: function () {
@@ -70,7 +76,7 @@ export default {
 @import url("@/assets/css/input.css");
 @import url("@/assets/css/loginBg.css");
 .choices {
-  margin-top: 13%;
+  margin-top: 20%;
   display: flex;
   text-align: center;
   justify-content: center;
